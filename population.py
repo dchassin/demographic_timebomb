@@ -51,8 +51,8 @@ class Population:
             data = result[-1].copy()
             data["Year"] = year
 
-            adult_male = data.loc[self.adult_age:self.senior_age]["Male"].sum()
-            adult_female = data.loc[self.adult_age:self.senior_age]["Female"].sum()
+            adult_male = data.loc[self.adult_age:self.senior_age-5]["Male"].sum()
+            adult_female = data.loc[self.adult_age:self.senior_age-5]["Female"].sum()
             adult_total = adult_male + adult_female
             male_fraction = adult_male / adult_total
             female_fraction = adult_female / adult_total
@@ -92,8 +92,8 @@ class Population:
             senior_age = self.senior_age
         
         return pd.DataFrame({
-            "Children":(self.data.loc[np.s_[:,0:adult_age],["Male","Female"]].groupby("Year").sum()).sum(axis=1),
-            "Adults":(self.data.loc[np.s_[:,adult_age:senior_age],["Male","Female"]].groupby("Year").sum()).sum(axis=1),
+            "Children":(self.data.loc[np.s_[:,:adult_age-5],["Male","Female"]].groupby("Year").sum()).sum(axis=1),
+            "Adults":(self.data.loc[np.s_[:,adult_age:senior_age-5],["Male","Female"]].groupby("Year").sum()).sum(axis=1),
             "Seniors":(self.data.loc[np.s_[:,senior_age:],["Male","Female"]].groupby("Year").sum()).sum(axis=1),
             })
 
