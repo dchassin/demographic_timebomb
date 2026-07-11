@@ -2,7 +2,7 @@
 
 This repository examines the so-called "demographic timebomb" which claims that declining birthrates and rising senior population lead to a dire situation wherein there is insufficient number of workers to support the senior population. The argument seems to be setting up a justification for reducing the government expenditure on social security and medicare. 
 
-However, if we consider the more general class of non-workers, which includes both children and seniors, who must be financial supported by workers we find the decline in children combined with the rising number of senior creates an altogether different picture, as shown in Figure 1.
+However, if we consider the more general class of non-workers, which includes both children and seniors, who must be financial supported by workers we find the decline in children combined with the rising number of seniors creates an altogether different picture, as shown in Figure 1.
 
 ![Demographics of non-workers vs workers](https://github.com/dchassin/demographic_timebomb/blob/main/forecast.png?raw=true)
 
