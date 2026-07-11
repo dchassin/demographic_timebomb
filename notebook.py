@@ -30,8 +30,8 @@ def _(mo):
 
 @app.cell
 def _(Population, ui_fertility, ui_immigration):
-    population = Population("usa",2020,2100,immigration=ui_immigration.value,fertility_change_rate=ui_fertility.value/100)
-    return (population,)
+    pop = Population("usa",2020,2101,immigration=ui_immigration.value,fertility_change_rate=ui_fertility.value/100)
+    return (pop,)
 
 
 @app.cell
@@ -55,23 +55,56 @@ def _():
 
 
 @app.cell
-def _(historical, mo, pd, population):
-    fig1 = population.plot_population(
-        title=population.country,
+def _(historical, mo, pd, pop):
+    fig1 = pop.plot_population(
+        title=pop.country,
         grid=True,
         xlabel="Year",
         ylabel="Population (M)",
         legend=True,
     )[1]
     fig1.plot(pd.DataFrame(data=historical.values(),index=historical.keys()),"--k")
-    fig2 = population.plot_dependents(
-        title=population.country,
+    fig2 = pop.plot_dependents(
+        title=pop.country,
         grid=True,
         xlabel="Year",
         ylabel="Dependents per adult",
         legend=False,
     )[1]
     mo.hstack([fig1,fig2])
+    return
+
+
+@app.cell
+def _(mo):
+    ui_year = mo.ui.slider(label="Year:",start=2020,stop=2100,step=5,value=2020,debounce=True,show_value=True)
+    ui_year
+    return (ui_year,)
+
+
+@app.cell
+def _(pop, ui_year):
+    _data = (
+        pop.dataframe().loc[ui_year.value, ["males[M]", "females[M]"]].copy() / 1e6
+    )
+    _data["females[M]"] = -_data["females[M]"]
+    _data.index = [int(x) for x in _data.index]
+    ax = _data.plot.barh(
+        grid=True,
+        color=["r", "b"],
+        stacked=True,
+        width=1.0,
+        position=1,
+        ylim=[0, 105],
+    )
+    ax.set_yticks(range(_data.index.min(),_data.index.max(),5))
+    ax
+    return
+
+
+@app.cell
+def _(pop):
+    pop.data
     return
 
 
