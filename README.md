@@ -6,7 +6,7 @@ However, if we consider the more general class of non-workers, which includes bo
 
 ![Demographics of non-workers vs workers](https://github.com/dchassin/demographic_timebomb/blob/main/forecast.png?raw=true)
 
-This figure compares three scenarios with different adult fertility rates, falling by 1% per year (blue), steady (green), and rising by 1% per year (red). When we include children in the number of people that workers must support we find that when fertility rates decline workers support fewer people altogether.
+This figure compares three scenarios with different adult fertility rates, falling by 1% per year (blue), steady (yellow), and rising by 1% per year (green). When we include children in the number of people that workers must support we find that when fertility rates decline workers support fewer people altogether.
 
 This suggests that declining fertilility rates are not a problem overall. If there is any concern about financial support for seniors it is more likely to arise from poorly informed government policies regarding social security, senior health care, and retirement funding than it is to arise from likely outcomes of population dynamics.
 
